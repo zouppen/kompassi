@@ -1,0 +1,4 @@
+To get political compass data:
+
+sheet <- getCompassSheet("username","passwd");
+getCompassMatrix(sheet)
