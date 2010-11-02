@@ -1,9 +1,12 @@
 # Compass data fetching
 
+library(RGoogleDocs)
+
 getCompassSheet <- function(username, password) {
   auth <- getGoogleAuth(username, password, service="wise")
   con <- getGoogleDocsConnection(auth)
-  form <- getWorksheets(a$`Poliittinen kompassi`, con)
+  docs <- getDocs(con)
+  form <- getWorksheets(docs$`Poliittinen kompassi`, con)
   form$Sheet1
 }
 
