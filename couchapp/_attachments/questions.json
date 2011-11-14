@@ -1,0 +1,52 @@
+{
+    "mamu": {
+	"min": "Suomen pitäisi karsia maahanmuuttoa 90%",
+	"max": "Rajat tulisi avata kaikelle maahanmuutolle",
+	"vector": [0,1]
+    },
+    "tuomio": {
+	"min": "Vankeusrangaistuksia tulisi koventaa ja kuolemanrangaistukset tulisi ottaa käyttöön",
+	"max": "Kuolemanrangaistusta ei pidä ottaa käyttöön ja myös vankien oikeudet tulee huomioida",
+	"vector": [0,1]
+    },
+    "homo": {
+	"min": "Homopareilta tulee poistaa mahdollisuus rekisteröidä parisuhteensa",
+	"max": "Homopareille tulisi antaa oikeudet sekä avioliittoon, että lapsen adoptoimiseen",
+	"vector": [0,1]
+    },
+    "ase": {
+	"min": "Oikeutta ampuma-aseiden hallussapitoon ei tulisi rajoittaa millään tavalla",
+	"max": "Kaikki käsiaseet tulisi kieltää lailla ja valtion tulisi sallia vain luvanvaraiset metsästysaseet",
+	"vector": [0,1]
+    },
+    "armeija": {
+	"min": "Nuoria tulisi kannustaa enemmän suorittamaan armeija",
+	"max": "Yleisestä asevelvollisuudesta tulisi luopua ja siirtyä vapaaehtoisuuteen pohjautuvaan järjestelmään (esim. palkka-armeija)",
+	"vector": [0,1]
+    },
+    "veroaste": {
+	"min": "Suomessa tulisi olla korkea veroaste, mutta samalla paljon julkisia palveluja ja tulonsiirtoja (esim. yleinen terveydenhuolto, ilmainen koulutus, äitiyspäiväraha ja opintotuki)",
+	"max": "Suomen veroasteen tulisi olla mahdollisimman matala ja valtion tulisi tuottaa vain välttämättömimmät palvelut (kuten poliisi ja oikeuslaitos)",
+	"vector": [1,0]
+    },
+    "progressio": {
+	"min": "Suomessa tulee jatkossakin olla käytössä ns. progressiivinen verotus, jossa suurista tuloista maksetaan suurempi prosenttiosuus veroa",
+	"max": "Suomessa tulisi olla käytössä ns. tasavero, eli kaikista tuloista maksettaisiin veroa sama prosenttiosuus",
+	"vector": [1,0]
+    },
+    "kehy": {
+	"min": "Suomen valtion tulisi kaksinkertaistaa kehitysyhteistyömäärärahat köyhien maiden tukemiseksi",
+	"max": "Kaikki Suomen valtion maksamat kehitysyhteistyöhankkeet tulisi lopettaa",
+	"vector": [1,0]
+    },
+    "palkka": {
+	"min": "Kaikesta työstä tulisi maksaa työntekijälle samansuuruista palkkaa: valtion tulisi säädellä kaikkea palkanmaksua",
+	"max": "Palkkaerojen tulisi olla nykyistä suurempia, eikä valtion tulisi saada vaikuttaa palkkaeroihin lainsäädännöllä",
+	"vector": [1,0]
+    },
+    "tuotanto": {
+	"min": "Kaiken tuotannon ja liiketoiminnan tulisi olla yhteisomistuksessa, jotta hyödykkeet voitaisiin jakaa tasan ihmisten kesken",
+	"max": "Markkinataloutta ei tulisi säädellä lainkaan, jotta kilpailu olisi mahdollisimman vapaata kaikilla yhteiskunnan osa-alueilla",
+	"vector": [1,0]
+    }
+}
