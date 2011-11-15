@@ -6,6 +6,12 @@
 
 var mystore;
 
+var consts = {
+    circle_scale: 20,
+    circle_min: 5,
+    nick_count: 5
+};
+
 Ext.Loader.setConfig({
     enabled: true
 });
@@ -28,6 +34,8 @@ Ext.application({
 
 	var cmp1 = Ext.create('Kompassi.Plot', {
 	    store: mystore,
+	    width: 300,
+	    height: 300,
 	    renderTo: Ext.getBody()	
 	});
 	cmp1.show();
@@ -36,11 +44,8 @@ Ext.application({
 
 Ext.define('Kompassi.Plot', {
     extend: 'Ext.chart.Chart',
-    width: 400,
-    height: 300,
     axes: [
 	{
-	    grid: true,
 	    title: 'konservatiivi / liberaali',
 	    type: 'Numeric',
 	    position: 'left',
@@ -49,7 +54,6 @@ Ext.define('Kompassi.Plot', {
 	    maximum: 50
 	},
 	{
-	    grid: true,
 	    title: 'vasemmisto / oikeisto',
 	    type: 'Numeric',
 	    position: 'bottom',
@@ -58,22 +62,41 @@ Ext.define('Kompassi.Plot', {
 	    maximum: 50
 	}
     ],
-
+    animate: true,
     series: [
         {
             type: 'scatter',
             xField: 'x',
             yField: 'y',
-            axis: ['left','bottom'],
             markerConfig: {
 		radius: 5,
 		size: 5
             },
+	    renderer: function(sprite, record, attr, index, store) {
+		var n = store.count();
+		var lastness = n-index-1;
+		// Thanks for the algorithm, Elktro <3
+		var size = consts.circle_min+consts.circle_scale/(1 << (lastness/2));
+		// Color map got from
+		// http://dev.sencha.com/deploy/ChartsDemo/examples/chart/ScatterRenderer.js
+		var color = ['rgb(213, 70, 121)', 
+			     'rgb(44, 153, 201)', 
+			     'rgb(146, 6, 157)', 
+			     'rgb(49, 149, 0)', 
+			     'rgb(249, 153, 0)',
+			     'rgb(0, 0, 0)',
+			     'rgb(120, 120, 120)',
+			     'rgb(200, 200, 200)'][index % 8];
+		return Ext.apply(attr, {
+		    radius: size,
+		    fill: color
+		});
+	    },
             label: {
                 display: 'middle',
                 field: 'nick',
                 'text-anchor': 'middle',
-//                contrast: true,
+                contrast: true,
 //		color: '#000'
 		font: "15px Liberation Sans, sans-serif"
             },
@@ -94,8 +117,15 @@ Ext.define('Kompassi.Plot', {
 	    success: function(response) {
 		var json = Ext.decode(response.responseText);
 		for (i in json.rows) {
+		    var points = json.rows[i].value;
 		    // Plot new point.
-		    mystore.add(json.rows[i].value);
+		    mystore.add(points);
+
+		    // Remove legend for old point
+		    var i = mystore.count()-consts.nick_count;
+		    if (i >= 0) {
+			mystore.getAt(i).set("nick","");
+		    }
 		}
 	    }
 	}
