@@ -9,7 +9,8 @@ var mystore;
 var consts = {
     circle_scale: 20,
     circle_min: 5,
-    nick_count: 5
+    nick_count: 5,
+    nick_font: "15px Liberation Sans, sans-serif"
 };
 
 Ext.Loader.setConfig({
@@ -32,18 +33,57 @@ Ext.application({
 	    data: []
 	});
 
-	var cmp1 = Ext.create('Kompassi.Plot', {
-	    store: mystore,
-	    width: 300,
-	    height: 300,
-	    renderTo: Ext.getBody()	
+	var win = Ext.create('Ext.Window', {
+            width: 800,
+            height: 600,
+            hidden: false,
+	    closable: false,
+            maximizable: true,
+            title: 'Demarinuorten poliittinen kompassi',
+            renderTo: Ext.getBody(),
+            layout: 'fit',
+	    items : {
+		xtype: 'kompassi',
+		store: mystore
+	    }
 	});
-	cmp1.show();
+
+	var dnuoret = Ext.create('Ext.Window', {
+            width: 140,
+            height: 160,
+	    bodyPadding: 20,
+            hidden: false,
+            maximizable: true,
+            title: 'www.demarinuoret.fi',
+            renderTo: Ext.getBody(),
+            layout: 'fit',
+	    items : {
+		xtype: 'image',
+		src: 'demarinuoret.png'
+	    }
+	});
+
+	var jsdn = Ext.create('Ext.Window', {
+            width: 140,
+            height: 180,
+	    bodyPadding: 10,
+            hidden: false,
+            maximizable: true,
+            title: 'www.jsdn.fi',
+            renderTo: Ext.getBody(),
+            layout: 'fit',
+	    items : {
+		xtype: 'image',
+		src: 'jsdn.png'
+	    }
+	});
+
     },
 });
 
 Ext.define('Kompassi.Plot', {
     extend: 'Ext.chart.Chart',
+    alias: 'widget.kompassi',
     axes: [
 	{
 	    title: 'konservatiivi / liberaali',
@@ -96,9 +136,7 @@ Ext.define('Kompassi.Plot', {
                 display: 'middle',
                 field: 'nick',
                 'text-anchor': 'middle',
-                contrast: true,
-//		color: '#000'
-		font: "15px Liberation Sans, sans-serif"
+		font: consts.nick_font
             },
         }
     ],
