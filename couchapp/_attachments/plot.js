@@ -112,7 +112,7 @@ Ext.define('Kompassi.Plot', {
 	    failure: function(response) {
 		// If it fails, wait and try again.
 		setTimeout(function() {
-		    Ext.Ajax.recuest(longpoll);
+		    Ext.Ajax.request(longpoll);
 		}, 5000);
 	    },
 	    success: function(response) {
