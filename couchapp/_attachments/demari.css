@@ -1,0 +1,21 @@
+/* window */
+.x-window-body-default {
+    background-color: white;
+}
+
+/* window frame */
+.x-window-default, .x-window-header-default-top {
+    background-color: #CE0000;
+}
+
+.x-window-default {
+    border-color: black;
+}
+
+.x-window-header-text-default {
+    color: white;
+}
+
+body {
+    background-color: #F2EFEF;
+}

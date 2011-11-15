@@ -34,11 +34,12 @@ Ext.application({
 	});
 
 	var win = Ext.create('Ext.Window', {
-            width: 800,
-            height: 600,
+            width: 600,
+            height: 500,
             hidden: false,
 	    closable: false,
             maximizable: true,
+	    bodyPadding: 10,
             title: 'Demarinuorten poliittinen kompassi',
             renderTo: Ext.getBody(),
             layout: 'fit',
