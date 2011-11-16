@@ -117,7 +117,9 @@ Ext.define('Kompassi.Plot', {
 		var n = store.count();
 		var lastness = n-index-1;
 		// Thanks for the algorithm, Elktro <3
-		var size = consts.circle_min+consts.circle_scale/(1 << (lastness/2));
+		var size;
+		if (lastness>30) size = consts.circle_min;
+		else size = consts.circle_min+consts.circle_scale/(1 << (lastness/2));
 		// Color map got from
 		// http://dev.sencha.com/deploy/ChartsDemo/examples/chart/ScatterRenderer.js
 		var color = ['rgb(213, 70, 121)', 
