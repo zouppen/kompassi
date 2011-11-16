@@ -34,6 +34,8 @@ Ext.application({
 
 Ext.define('Kompassi.Form', {
     extend: 'Ext.form.Panel',
+    bodyPadding: 20,
+    width: 700,
 
     initComponent: function() {
         var me = this;
@@ -42,6 +44,7 @@ Ext.define('Kompassi.Form', {
 	for(key in me.questions) {
 	    form.push({
 		xtype: 'label',
+		width: 100,
 		text: me.questions[key].min
 	    });
 	    form.push({
@@ -62,17 +65,57 @@ Ext.define('Kompassi.Form', {
 	Ext.applyIf(me, {
 	    items: [
 		{
+		    xtype: 'label',
+		    id: 'iso',
+		    text: 'Poliittinen kompassi'
+		},
+		{
 		    xtype: 'textfield',
 		    fieldLabel: 'Nimimerkki',
 		    name: 'nick'
 		},
 		{
 		    xtype: 'container',
+		    id: 'sliders',
 		    layout: {
 			columns: 3,
 			type: 'table'
 		    },
 		    items: form
+		},
+		{
+		    xtype: 'label',
+		    id: 'yhteys',
+		    text: 'Yhteystietosi'
+		},
+		{
+		    xtype: 'label',
+		    id: 'naiden',
+		    text: 'Näiden avulla sinuun saadaan yhteyttä, mikäli olet kiinnostunut tai satut voittamaan arvonnassa. Tietoja ei luovuteta ulkopuolisten käyttöön.'
+		},
+		{
+		    xtype: 'textfield',
+		    fieldLabel: 'Nimesi',
+		    labelWidth: 150,
+		    name: 'name'
+		},
+		{
+		    xtype: 'textfield',
+		    fieldLabel: 'Sähköpostiosoitteesi',
+		    labelWidth: 150,
+		    name: 'email'
+		},
+		{
+		    xtype: 'textfield',
+		    fieldLabel: 'Puhelinnumerosi',
+		    labelWidth: 150,
+		    name: 'phone'
+		},
+		{
+		    xtype: 'textfield',
+		    fieldLabel: 'Syntymävuotesi',
+		    labelWidth: 150,
+		    name: 'born'
 		},
 		{
 		    xtype: 'checkboxfield',
@@ -106,7 +149,9 @@ Ext.define('Kompassi.Form', {
 			    params: value,
 			    headers: {'Content-Type': 'application/json'},
 			    success: function(response) {
-				alert('sinne meni');
+				alert('Kiitos tiedoista, tietosi näkyy nyt valkokankaalla!');
+				me.getForm().reset();
+				window.scroll(0,0);
 			    }
 			});
 		    }

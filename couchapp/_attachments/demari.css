@@ -19,3 +19,27 @@
 body {
     background-color: #F2EFEF;
 }
+
+/* ugly hacks because it's half past one at night */
+
+#sliders td {
+    padding: 1em;
+    border-bottom: thin solid gray;
+    border-top: thin solid gray;
+}
+
+#sliders {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+#iso, #yhteys {
+    font-size: large;
+    margin-bottom: 1em;
+    display: block;
+}
+
+#naiden {
+    display: block;
+    margin-bottom: 1em;
+}
