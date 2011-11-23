@@ -109,6 +109,7 @@ Ext.define('Kompassi.Plot', {
             type: 'scatter',
             xField: 'x',
             yField: 'y',
+	    axis: ['left','bottom'],
             markerConfig: {
 		radius: 5,
 		size: 5
@@ -127,7 +128,7 @@ Ext.define('Kompassi.Plot', {
 			     'rgb(146, 6, 157)', 
 			     'rgb(49, 149, 0)', 
 			     'rgb(249, 153, 0)',
-			     'rgb(0, 0, 0)',
+			     'rgb(211, 42, 45)',
 			     'rgb(120, 120, 120)',
 			     'rgb(200, 200, 200)'][index % 8];
 		return Ext.apply(attr, {
@@ -163,7 +164,7 @@ Ext.define('Kompassi.Plot', {
 		    mystore.add(points);
 
 		    // Remove legend for old point
-		    var i = mystore.count()-consts.nick_count;
+		    var i = mystore.count()-consts.nick_count-1;
 		    if (i >= 0) {
 			mystore.getAt(i).set("nick","");
 		    }

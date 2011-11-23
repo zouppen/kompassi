@@ -20,6 +20,10 @@ body {
     background-color: #F2EFEF;
 }
 
+.plotbody {
+    background-color: #000000;
+}
+
 /* ugly hacks because it's half past one at night */
 
 #sliders td {
